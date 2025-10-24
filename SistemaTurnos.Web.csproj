@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DotNetEnv" Version="3.1.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.10">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.10" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+      <PackageReference Include="QRCoder" Version="1.7.0" />
+      <PackageReference Include="System.Drawing.Common" Version="9.0.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\bin\Debug\net8.0\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\bin\Debug\net8.0\appsettings.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\bin\Debug\net8.0\SistemaTurnos.Web.deps.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\bin\Debug\net8.0\SistemaTurnos.Web.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\bin\Debug\net8.0\SistemaTurnos.Web.staticwebassets.endpoints.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\bin\Debug\net8.0\SistemaTurnos.Web.staticwebassets.runtime.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\Debug\net8.0\rjimswa.dswa.cache.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\Debug\net8.0\rjsmrazor.dswa.cache.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\Debug\net8.0\rpswa.dswa.cache.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\Debug\net8.0\staticwebassets.build.endpoints.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\Debug\net8.0\staticwebassets.build.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\Debug\net8.0\staticwebassets.development.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="SistemaTurnos.Web\obj\SistemaTurnos.Web.csproj.nuget.dgspec.json" />
+    </ItemGroup>
+
+</Project>
