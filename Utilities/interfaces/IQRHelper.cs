@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace SistemaTurnos.Web.Utilities.interfaces;
 
 public interface IQRHelper

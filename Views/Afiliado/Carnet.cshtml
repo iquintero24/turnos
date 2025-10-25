@@ -1,0 +1,57 @@
+@model SistemaTurnos.Web.Models.ViewModels.Afiliados.AfiliadoCarnetViewModel;
+
+@{
+    ViewData["Title"] = "Carnet de Afiliado";
+}
+
+<style>
+    .carnet-card {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        background-color: #f8f9fa;
+        text-align: center;
+    }
+    .qr-container {
+        margin: 20px 0;
+        border: 5px solid #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        display: inline-block;
+        background-color: #fff;
+        padding: 5px;
+    }
+    .carnet-title {
+        color: #007bff;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="carnet-card">
+    <h2 class="carnet-title">CARNET DE AFILIADO</h2>
+    
+    <div class="qr-container">
+        <!-- Llamamos a la acción QrImage para obtener la imagen directamente -->
+        <img src="@Url.Action("QrImage", "Afiliado", new { id = Model.Id })" 
+             alt="Código QR del Afiliado" 
+             width="200" height="200" />
+    </div>
+
+    <p><strong>ID:</strong> @Html.DisplayFor(model => model.Id)</p>
+    <p><strong>Nombre:</strong> @Html.DisplayFor(model => model.Nombre)</p>
+    <p><strong>Documento:</strong> @Html.DisplayFor(model => model.Documento)</p>
+    
+    <hr />
+    
+    <p class="text-muted small">Escanee este código para solicitar un turno.</p>
+    
+    <div class="mt-4">
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="fas fa-list"></i> Volver al Listado
+        </a>
+    </div>
+</div>

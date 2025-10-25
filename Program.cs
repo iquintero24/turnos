@@ -1,6 +1,13 @@
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using SistemaTurnos.Web.Data;
+using SistemaTurnos.Web.Services;
+using SistemaTurnos.Web.Services.Interfaces; 
+using SistemaTurnos.Web.Utilities;
+using SistemaTurnos.Web.Utilities.interfaces;
+using SistemaTurnos.Web.Repositories.Interfaces;
+using SistemaTurnos.Web.Repositories;
+
 
 //1. Cargamos las variables de entorno:
 Env.Load();
@@ -33,6 +40,37 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     }));
 
 
+// ===================================================================================
+// [3. REGISTRO DE SERVICIOS Y UTILIDADES (INYECCIÓN DE DEPENDENCIAS)] << AÑADIDO AQUÍ
+// ===================================================================================
+
+// ------------------------------------
+// 1. REGISTRO DE REPOSITORIOS (Soluciona el error de DI)
+// ------------------------------------
+builder.Services.AddScoped<IAfiliadoRepository, AfiliadoRepository>();
+builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+builder.Services.AddScoped<ITurnoRepository, TurnoRepository>();
+
+// Repositorio CRUD Base (Genérico)
+builder.Services.AddScoped(typeof(BaseCrudRepository<>));
+
+
+// ------------------------------------
+// 2. REGISTRO DE SERVICIOS Y UTILIDADES
+// ------------------------------------
+
+// **Utilidades** (AddSingleton): El generador de QR es sin estado.
+builder.Services.AddSingleton<IQRHelper, QrHelper>();
+
+// **Servicios de Negocio** (AddScoped): Manejan lógica de negocio y contexto de solicitud.
+builder.Services.AddScoped<IFuncionarioService, FuncionarioService>();
+builder.Services.AddScoped<IAfiliadoService, AfiliadoService>();
+builder.Services.AddScoped<IturnoService, TurnoService>();
+
+// ===================================================================================
+// FIN REGISTRO DE SERVICIOS
+// ===================================================================================
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -51,6 +89,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Manteniendo UseAuthorization aunque las rutas sean públicas, por si decides añadir roles después.
 app.UseAuthorization();
 
 app.MapControllerRoute(
